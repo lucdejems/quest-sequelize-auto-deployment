@@ -23,7 +23,7 @@ if (process.env.MOCK_DATA_ITEMS_SEEDER){
     },
   ];
 
-  return items = {...items, itemsMock};
+  return items = [...items, itemsMock];
 }
 
 module.exports = {

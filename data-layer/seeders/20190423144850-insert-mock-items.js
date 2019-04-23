@@ -1,6 +1,6 @@
 'use strict';
 
-const items = [
+let items = [
   {
     id: 'HAMMER-1234',
     name: 'Hammer',
@@ -10,6 +10,21 @@ const items = [
     name: 'Nails',
   },
 ];
+
+if (process.env.MOCK_DATA_ITEMS_SEEDER){
+  const itemsMock = [
+    {
+      id: 'MOCK-HAMMER-6752',
+      name: 'Mock-Hammer',
+    },
+    {
+      id: 'MOCK-NAILS-5678',
+      name: 'Mock-Nails',
+    },
+  ];
+
+  return items = {...items, itemsMock};
+}
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -26,3 +41,5 @@ module.exports = {
     );
   },
 };
+
+// npx sequelize db:seed:all
